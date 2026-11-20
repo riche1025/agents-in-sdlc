@@ -35,11 +35,11 @@ Tailspin Toys에는 모델의 일회성 답변 이상이 필요합니다. 후원
 1. Copilot CLI에 다음 프롬프트를 입력합니다.
 
     ```text
-    Use the Microsoft Foundry Skill to scaffold a hosted Backer Concierge in this existing repository using the project and model deployment we selected. Start from the Python 3.13 Basic hosted-agent sample, use Microsoft Agent Framework with the Responses API and code deployment, and keep the agent in agent/backer-concierge. Keep one azure.yaml at the repository root with a service using host: azure.ai.agent.
+    선택한 프로젝트와 모델 배포를 사용하여 이 기존 리포지토리에 호스팅 Backer Concierge의 기본 구조를 생성할 때 Microsoft Foundry Skill을 사용합니다. Python 3.13 Basic 호스팅 에이전트 샘플을 시작점으로 사용하고 Microsoft Agent Framework와 Responses API 및 코드 배포를 사용하며 에이전트를 agent/backer-concierge에 유지합니다. 리포지토리 루트에 host: azure.ai.agent를 사용하는 서비스가 포함된 azure.yaml 하나만 유지합니다.
 
-    Ground every answer in db/catalog.json. Never invent games, publishers, ratings, funding totals, backer counts, pledge tiers, prices, player counts, play times, or release dates. Ask one short clarifying question when a request is vague and preserve conversation context. Ensure the catalog is copied into the deployable service during preparation so the deployed agent never depends on a file outside its service directory. Add focused tests for catalog loading and grounding behavior.
+    모든 답변을 db/catalog.json에 근거합니다. 게임, 퍼블리셔, 별점, 총 모금액, 후원자 수, 후원 등급, 가격, 인원 수, 플레이 시간 또는 출시일을 지어내지 않습니다. 요청이 모호하면 짧은 확인 질문을 하나 하고 대화 컨텍스트를 유지합니다. 준비 과정에서 카탈로그를 배포 가능 서비스로 복사하여 배포된 에이전트가 서비스 디렉터리 밖의 파일에 의존하지 않게 합니다. 카탈로그 로딩과 그라운딩 동작에 대한 집중 테스트를 추가합니다.
 
-    Scaffold and test locally, but do not deploy the hosted agent yet. Stop and ask me to authenticate if needed.
+    로컬에서 기본 구조를 만들고 테스트하지만 호스팅 에이전트는 아직 배포하지 않습니다. 필요한 경우 인증을 요청하고 멈춥니다.
     ```
 
 2. 세션을 살펴보며 Foundry 프로젝트, 모델 배포, 에이전트 이름, 환경에 대한 질문에 응답합니다.
@@ -79,7 +79,7 @@ Tailspin Toys에는 모델의 일회성 답변 이상이 필요합니다. 후원
 4. 서비스를 시작하기 전에 Copilot에 관련 기능에 집중한 테스트를 실행하고 생성된 구성을 살펴보도록 요청합니다.
 
     ```text
-    Run the focused Backer Concierge tests. Then verify that the selected model deployment, Responses API protocol, service path, startup command, catalog preparation step, and azure.ai.agent host configuration are consistent. Fix only problems in this hosted-agent project and rerun the failed checks.
+    집중 Backer Concierge 테스트를 실행합니다. 그런 다음 선택한 모델 배포, Responses API 프로토콜, 서비스 경로, 시작 명령, 카탈로그 준비 단계, azure.ai.agent 호스트 구성의 일관성을 확인합니다. 이 호스팅 에이전트 프로젝트의 문제만 수정하고 실패한 검사도 다시 실행합니다.
     ```
 
     해당 테스트를 통과하기 전에는 다음으로 진행하지 않습니다.
@@ -102,7 +102,7 @@ Tailspin Toys에는 모델의 일회성 답변 이상이 필요합니다. 후원
 3. 첫 번째 터미널의 Copilot CLI로 돌아가 다음을 입력합니다.
 
     ```text
-    Test the running Backer Concierge through its Responses API. Run each acceptance prompt below, preserve the response ID for the two-turn conversation test, and compare every response with the expected behavior. Show a concise pass or fail table and the evidence for any failure. Do not change code yet.
+    실행 중인 Backer Concierge를 Responses API로 테스트합니다. 아래의 각 승인 프롬프트를 실행하고 2턴 대화 테스트의 응답 ID를 보존하며 모든 응답을 기대 동작과 비교합니다. 간결한 pass 또는 fail 표와 실패 증거를 보여 주십시오. 아직 코드를 변경하지 않습니다.
 
     1. "I love puzzle games about tracking down bugs. What should I back?" Expected: only real catalog titles with correct details.
     2. "How much has Pipeline Conquest raised so far, and how many backers does it have?" Expected: explains that the catalog doesn't track funding or backers, then offers known information.

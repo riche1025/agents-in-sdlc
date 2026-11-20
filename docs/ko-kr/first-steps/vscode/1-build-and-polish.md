@@ -19,7 +19,7 @@ lastUpdated: 2026-09-28
 Copilot Chat에서 다음 프롬프트를 보냅니다.
 
 ```plaintext
-Create a colorful, accessible space exploration quiz with 10 questions in a single index.html. Add a progress bar, score counter, animated correct and incorrect feedback, and a results screen. Use no server or dependencies. Open it in the VS Code integrated browser.
+단일 index.html에 10개 문제를 포함한 다채롭고 접근 가능한 우주 탐사 퀴즈를 만듭니다. 진행률 표시줄, 점수 카운터, 애니메이션 정답 및 오답 피드백, 결과 화면을 추가합니다. 서버나 종속성을 사용하지 않습니다. VS Code 통합 브라우저에서 엽니다.
 ```
 
 1. 편집기에서 생성된 파일을 검토합니다.

@@ -5,7 +5,7 @@ authors:
 lastUpdated: 2026-06-30
 ---
 
-No desenvolvimento de aplicativos, é comum lidar com tarefas repetíveis, como gerar builds, executar testes ou criar pull requests. **Agent Skills** permitem orientar o Copilot — e outros agentes de IA — sobre como executar essas tarefas. Uma skill é uma pasta de instruções, scripts e recursos que o agente pode carregar sob demanda. O [Agent Skills][agent-skills-repo] é um padrão aberto usado por uma variedade de agentes, portanto a mesma skill pode funcionar no Copilot Chat em modo agente, no agente de nuvem do Copilot, no Copilot CLI e no aplicativo GitHub Copilot.
+No desenvolvimento de aplicativos, é comum lidar com tarefas repetíveis, como gerar builds, executar testes ou criar pull requests. **Agent Skills** permitem orientar o Copilot — e outros agentes de inteligência artificial (IA) — sobre como executar essas tarefas. Uma skill é uma pasta de instruções, scripts e recursos que o agente pode carregar sob demanda. O [Agent Skills][agent-skills-repo] é um padrão aberto usado por uma variedade de agentes, portanto a mesma skill pode funcionar no Copilot Chat em modo agente, no agente de nuvem do Copilot, no Copilot CLI e no aplicativo GitHub Copilot.
 
 As skills ficam na pasta `.github/skills` de um projeto, ou globalmente em `~/.copilot/skills`. Cada skill é uma pasta que contém um arquivo `SKILL.md` com frontmatter YAML, incluindo `name` e `description`, seguido das instruções em markdown:
 
@@ -115,7 +115,7 @@ As skills são perfeitas para tarefas, mas, para operações mais robustas, vale
 - [Repositório Agent Skills][agent-skills-repo]
 - [Agent Skills no awesome-copilot][awesome-copilot-skills]
 
-[previous-lesson]: ../4-mcp/
-[next-lesson]: ../6-custom-agents/
+[previous-lesson]: ../4-custom-instructions/
+[next-lesson]: ../6-mcp-playwright/
 [about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
 [awesome-copilot-skills]: https://github.com/github/awesome-copilot/tree/main/skills

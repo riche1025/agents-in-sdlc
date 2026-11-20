@@ -38,9 +38,9 @@ Tailspin Toys는 전체를 사전 렌더링합니다. 브라우저 코드는 호
 1. Copilot CLI에 다음을 입력합니다.
 
     ```text
-    Use the Azure skills to add an Azure Functions v4 Node.js and TypeScript project in api with one POST /api/concierge endpoint that invokes my deployed Backer Concierge hosted agent. This Function will run locally only; don't add it to azure.yaml or create Azure deployment infrastructure. Use DefaultAzureCredential with my local Azure sign-in. Keep the HTTP trigger thin, isolate the Foundry client in a unit-testable module, validate and limit request bodies, set explicit timeouts, and return sanitized errors. Store the Foundry project endpoint and agent name in local server-side settings that are excluded from version control. Never return credentials or access tokens to the browser. The Astro site is `output: 'static'` with no dev proxy, so also add a local-only Vite dev-server proxy for /api to the Function's port in astro.config.mjs, so relative /api/concierge requests reach it during `astro dev`.
+    Azure skills를 사용하여 api에 Azure Functions v4 Node.js 및 TypeScript 프로젝트를 추가하고 배포된 Backer Concierge 호스팅 에이전트를 호출하는 POST /api/concierge 엔드포인트 하나를 만듭니다. 이 Function은 로컬에서만 실행되므로 azure.yaml에 추가하거나 Azure 배포 인프라를 만들지 않습니다. 로컬 Azure 로그인의 DefaultAzureCredential을 사용합니다. HTTP 트리거는 얇게 유지하고 Foundry 클라이언트는 단위 테스트 가능한 모듈로 분리하며 요청 본문을 검증하고 제한하고 명시적 시간 제한을 설정하고 민감한 정보가 제거된 오류를 반환합니다. Foundry 프로젝트 엔드포인트와 에이전트 이름은 버전 관리에서 제외되는 로컬 서버 측 설정에 저장합니다. 자격 증명이나 액세스 토큰을 브라우저에 반환하지 않습니다. Astro 사이트는 dev 프록시가 없는 `output: 'static'`이므로 `/api`의 상대 요청이 `astro dev` 중 Function 포트에 도달하도록 astro.config.mjs에 `/api`용 로컬 전용 Vite 개발 서버 프록시도 추가합니다.
 
-    For conversation state, generate a high-entropy handle on the server, map it to the Foundry conversation server-side with an expiration, and never expose a raw Foundry conversation or thread identifier. Reject malformed, expired, and unknown handles. Add focused unit tests.
+    대화 상태의 경우 서버에서 엔트로피가 높은 핸들을 생성하고 만료 시간과 함께 Foundry 대화에 서버 측으로 매핑하며 원시 Foundry 대화 또는 스레드 식별자는 노출하지 않습니다. 형식이 잘못됐거나 만료됐거나 알 수 없는 핸들은 거부합니다. 집중 단위 테스트를 추가합니다.
     ```
 
     ![Azure Functions 로컬 프록시 설정](../../../../_images/cli-8-azure-functions-proxy.png)
@@ -49,7 +49,7 @@ Tailspin Toys는 전체를 사전 렌더링합니다. 브라우저 코드는 호
 3. Copilot CLI로 돌아가 로컬 프록시 테스트를 요청합니다.
 
     ```text
-    Send a request to the local /api/concierge endpoint asking "Which games are under $30?" and show me the sanitized JSON response. Confirm that the request reaches the deployed Backer Concierge through DefaultAzureCredential.
+    "Which games are under $30?"라고 묻는 요청을 로컬 /api/concierge 엔드포인트에 보내고 민감한 정보가 제거된 JSON 응답을 보여 주십시오. 요청이 DefaultAzureCredential을 통해 배포된 Backer Concierge에 도달하는지 확인합니다.
     ```
 
 4. 응답을 살펴봅니다. 카탈로그에 가격 정보가 없다고 설명해야 합니다. Foundry 토큰, 자격 증명, 프로젝트 엔드포인트, 원본 Foundry 대화 식별자, 스택 추적이 포함되어서는 안 됩니다.
@@ -63,14 +63,14 @@ Tailspin Toys는 전체를 사전 렌더링합니다. 브라우저 코드는 호
 1. Copilot에 사이트 통합을 요청합니다.
 
     ```text
-    Add an accessible Backer Concierge chat widget as an Astro component and render it site-wide from Layout.astro. It should POST to /api/concierge and thread the conversation using the returned opaque conversation handle, follow the dark theme in style.instructions.md, support Escape to close, and include data-testid attributes.
+    접근 가능한 Backer Concierge 채팅 위젯을 Astro 컴포넌트로 추가하고 Layout.astro에서 사이트 전체에 렌더링합니다. /api/concierge로 POST하고 반환된 불투명한 대화 핸들로 대화를 이어가야 하며 style.instructions.md의 다크 테마를 따르고 Escape 키로 닫기를 지원하고 data-testid 속성을 포함해야 합니다.
     ```
 
 2. 로컬 Function을 실행 상태로 유지한 채 다른 터미널에서 Copilot이 제공한 명령으로 Astro 사이트를 시작합니다.
 3. Copilot CLI로 돌아갑니다. [레슨 6][playwright-lesson]에서 살펴보거나 추가한 Playwright MCP 서버를 이미 사용할 수 있습니다. Copilot에 위젯 테스트를 요청합니다.
 
     ```text
-    Use the Playwright MCP server to test the Backer Concierge widget end to end in the running Tailspin Toys site. Verify its core chat flow, conversation continuity, accessibility, error handling, grounding boundaries, and secure use of the local proxy. Report the results and include evidence for any failures.
+    Playwright MCP 서버를 사용하여 실행 중인 Tailspin Toys 사이트에서 Backer Concierge 위젯을 엔드투엔드 테스트합니다. 핵심 채팅 흐름, 대화 연속성, 접근성, 오류 처리, 그라운딩 범위와 로컬 프록시의 안전한 사용을 확인합니다. 결과를 보고하고 실패에 대한 증거를 포함합니다.
     ```
 
     ![Tailspin Toys 사이트의 Backer Concierge 위젯 화면](../../../../_images/cli-8-backer-concierge-widget.png)

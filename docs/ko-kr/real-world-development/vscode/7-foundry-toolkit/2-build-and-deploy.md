@@ -57,7 +57,7 @@ lastUpdated: 2026-09-16
 2. 새 채팅이 **AIAgentExpert**로 전환되는지 확인합니다. 생성된 프롬프트를 다음의 사용자 지정 프롬프트로 바꾸고 전송합니다.
 
    ```text
-   /foundrytk-quick-start Create a backer concierge AI agent called 'Backer Concierge'. The agent should use the model I deployed to answer catalog questions and recommend games grounded strictly in db/catalog.json. Review the acceptance criteria in the issue titled 'Add a Backer Concierge assistant for catalog questions' and ensure the agent meets them. Generate the code into agent/backer-concierge in the current workspace and ask me if anything is unclear.
+   /foundrytk-quick-start 'Backer Concierge'라는 이름의 backer concierge AI 에이전트를 만듭니다. 배포한 모델을 사용하여 카탈로그 질문에 답하고 db/catalog.json에 엄격히 근거하여 게임을 추천하게 합니다. 'Add a Backer Concierge assistant for catalog questions' 이슈의 승인 기준을 검토하고 충족하는지 확인합니다. 현재 작업 영역의 agent/backer-concierge에 코드를 생성하고 불분명한 내용이 있으면 확인합니다.
    ```
 
 3. `agent/backer-concierge`에 생성된 코드를 검토합니다. 배포 가능한 에이전트에 카탈로그가 포함되어 있고, 관련 테스트를 통과했으며, 자격 증명이나 로컬 환경 파일이 커밋되지 않을지 확인합니다.

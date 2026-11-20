@@ -100,7 +100,7 @@ Copilot이 구현을 시작합니다. 수립한 계획을 따라 코드를 생�
 1. 다음 프롬프트를 사용하여 Copilot에 앱을 시작하고 브라우저 캔버스에서 페이지를 열도록 요청합니다.
 
     ```plaintext
-    Start the app and open it in the browser canvas.
+    앱을 시작하고 브라우저 캔버스에서 엽니다.
     ```
 
 2. 잠시 후 앱이 시작되고 Copilot app 안에 브라우저 창이 열립니다.
@@ -108,7 +108,7 @@ Copilot이 구현을 시작합니다. 수립한 계획을 따라 코드를 생�
 4. 완료하면 다음 프롬프트로 이 세션에서 시작한 개발 서버를 중지하도록 Copilot에 요청합니다.
 
     ```plaintext
-    Stop the dev server and close the browser canvas.
+    개발 서버를 중지하고 브라우저 캔버스를 닫습니다.
     ```
 
 ## 요약 및 다음 단계
